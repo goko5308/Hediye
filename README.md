@@ -1,1 +1,107 @@
 # Hediye
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canım Anneme</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    button {
+        padding: 18px 35px;
+        font-size: 22px;
+        border: none;
+        border-radius: 20px;
+        background: #ff4d6d;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+        background: #ff1e56;
+    }
+
+    h1 {
+        color: white;
+        font-size: 45px;
+        margin-top: 20px;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px white;
+        }
+        to {
+            text-shadow: 0 0 25px red;
+        }
+    }
+
+    .rose {
+        position: absolute;
+        font-size: 40px;
+        animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+        from {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(-120vh) rotate(360deg);
+            opacity: 1;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <button onclick="showGift()">🎁 Hediyeyi Aç</button>
+    <h1 id="message" style="display:none;">
+        Seni Çok Seviyorum Anne ❤️
+    </h1>
+</div>
+
+<script>
+function showGift() {
+    document.getElementById('message').style.display = 'block';
+
+    for(let i = 0; i < 30; i++) {
+        let rose = document.createElement('div');
+        rose.innerHTML = '🌹';
+        rose.classList.add('rose');
+
+        rose.style.left = Math.random() * 100 + 'vw';
+        rose.style.animationDuration = (3 + Math.random() * 5) + 's';
+        rose.style.fontSize = (25 + Math.random() * 35) + 'px';
+
+        document.body.appendChild(rose);
+
+        setTimeout(() => {
+            rose.remove();
+        }, 7000);
+    }
+}
+</script>
+
+</body>
+</html>
